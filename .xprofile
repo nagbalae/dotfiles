@@ -1,0 +1,20 @@
+#wallpaper
+
+.sh/wallpaper
+
+#exports
+
+export WM=dwm
+export BROWSER=brave
+export TERMINAL=urxvt
+export TERM=urxvt
+export EDITOR=vim
+
+#scripts and stuff
+
+mount sdcard
+~/.sh/statbar &
+sxhkd &
+unclutter &
+.sh/colourdunst
+picom -b
