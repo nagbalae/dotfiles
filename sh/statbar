@@ -1,0 +1,12 @@
+#!/bin/bash
+while true
+do
+BRIGHTNESS=$(light)
+DISKUSAGE=$(df -h|awk '/sdcard/{print " sd",$4}/mmcblk1p2/{print " hm",$4}')
+WIFI=$(iwgetid -r || echo "none")
+DATESTATUS=$(date +"%A %X, %Y. %b. %d. %Z")
+VOLUME=$(pamixer --get-volume-human)
+BATTERY=$(echo "$(cat /sys/class/power_supply/BATC/status) $(cat /sys/class/power_supply/BATC/capacity)%")
+ echo "    $DISKUSAGE | $WIFI | $VOLUME | $BATTERY | $DATESTATUS | b:$BRIGHTNESS  " | awk -vORS="" '1' | xargs -i{} xsetroot -name "{}"
+ sleep 1
+done

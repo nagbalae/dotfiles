@@ -1,0 +1,15 @@
+#!/bin/sh
+#A simplish script to get a notification when cmus' status changes
+#With only one cmus-remote used it's probs a bit faster
+#ARTIST=$(cmus-remote -Q | grep "^\S*\sartist\s" | cut -d " " -f 3-999)
+#ALBUM=$(cmus-remote -Q | grep "^\S*\salbum\s" | cut -d " " -f 3-999)
+#TITLE=$(cmus-remote -Q | grep "^\S*\stitle\s" | cut -d " " -f 3-999)
+#STATUS=$(cmus-remote -Q | grep "^status\s" | cut -d " " -f 2)
+
+ALLTEXT="$(cmus-remote -Q)"
+ARTIST=$(echo -e "$ALLTEXT" | grep "^\S*\sartist\s" | cut -d " " -f 3-999)
+ALBUM=$(echo -e "$ALLTEXT" | grep "^\S*\salbum\s" | cut -d " " -f 3-999)
+TITLE=$(echo -e "$ALLTEXT" | grep "^\S*\stitle\s" | cut -d " " -f 3-999)
+STATUS=$(echo -e "$ALLTEXT" | grep "^status\s" | cut -d " " -f 2)
+~/.sh/fetchcover > /dev/null
+dunstify -r 69420 "$(echo -e "$STATUS\n$ARTIST\n$TITLE\n$ALBUM")" -i /tmp/cover.jpg

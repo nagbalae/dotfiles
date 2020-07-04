@@ -1,0 +1,4 @@
+#!/bin/bash
+FILEPLACE="$(cmus-remote -Q | grep file | cut -d " " -f 2-999)"
+FILEDIR="$(echo $FILEPLACE | cut -d "/" -f 1-6)"
+cp "$FILEDIR/cover.jpg" /tmp/cover.jpg || ffmpeg -y -i "$FILEPLACE" /tmp/cover.jpg || cp ~/.sh/nocover.jpg /tmp/cover.jpg

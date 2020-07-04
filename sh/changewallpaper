@@ -1,0 +1,12 @@
+#!/bin/bash
+bg="asd"
+bg=$(sxiv $(find ~/pictures/background/ |shuf) -f -o -t)
+if ! [ -z "$bg" ]; then
+	echo $bg  > ~/.sh/defaultwallpaper
+	~/.sh/wallpaper
+	.sh/colourdunst
+	xdotool key super+shift+F5
+	sleep 1
+	dunstify -r 80085 -i "$bg" "Background changed"
+fi
+
