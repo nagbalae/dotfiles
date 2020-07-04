@@ -1,0 +1,30 @@
+mod4 + F5
+	~/.sh/changewallpaper
+mod4 + w
+	$BROWSER
+mod4 + shift + w
+	$TERMINAL -e nmtui
+mod4 + n
+	$TERMINAL -e ranger
+mod4 + m
+	$TERMINAL -e cmus
+mod4 + shift + m
+	$TERMINAL -e pulsemixer
+mod4 + b
+	$TERMINAL -e newsboat
+XF86TouchpadToggle
+	~/.sh/touchpad
+XF86MonBrightnessUp
+	light -A 10
+XF86MonBrightnessDown
+	light -U 10
+XF86AudioMute
+	pamixer -t
+XF86AudioRaiseVolume
+	pamixer --allow-boost -i 5
+XF86AudioLowerVolume
+	pamixer --allow-boost -d 5
+XF86Sleep
+	sudo -A zzz
+mod4 + Print
+	scrot

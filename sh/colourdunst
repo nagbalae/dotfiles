@@ -1,0 +1,8 @@
+#!/bin/sh
+#COLOR0=$(cat ~/.cache/wal/colors | sed -n '1p')
+#COLOR7=$(cat ~/.cache/wal/colors | sed -n '8p')
+COLOR0=$(xrdb -query all | grep *color0 | awk '{print $2}')
+COLOR7=$(xrdb -query all | grep *color7 | awk '{print $2}')
+kill $(pidof dunst)
+dunst -lb $COLOR0 -nb $COLOR0 -cb $COLOR0 -lf $COLOR7 -nf $COLOR7 -cf $COLOR7 &
+
