@@ -13,7 +13,6 @@ picom
 dunst
 sxiv
 feh
-cmus-remote
 networkmanager
 aspell-hu
 bash
@@ -23,7 +22,7 @@ ffmpeg
 gawk
 iptables
 ufw
-nufraw
+gimp-nufraw
 pass
 mpv
 r
