@@ -1,5 +1,4 @@
 #!/bin/sh
-sleep 1
 cat ~/.sh/defaultwallpaper | xargs wal -i
 xdotool key super+shift+F5
 exit
