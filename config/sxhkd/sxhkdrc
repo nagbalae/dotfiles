@@ -28,3 +28,5 @@ XF86Sleep
 	sudo -A zzz
 mod4 + Print
 	scrot
+mod4 + a
+	passmenu

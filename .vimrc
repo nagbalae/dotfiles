@@ -5,8 +5,6 @@ call plug#begin('~/.vim/plugged')
  Plug 'junegunn/vim-easy-align'
  Plug 'https://github.com/xuhdev/vim-latex-live-preview.git'
  Plug 'PotatoesMaster/i3-vim-syntax'
- Plug 'https://github.com/Shougo/vimproc.vim.git', {'do' : 'make'}
- Plug 'https://github.com/itchyny/lightline.vim.git'
 
 let g:lightline = {
       \ 'colorscheme': 'seoul256',

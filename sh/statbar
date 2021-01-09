@@ -1,12 +1,9 @@
 #!/bin/bash
-while true
-do
 BRIGHTNESS=$(light)
-DISKUSAGE=$(df -h|awk '/sdcard/{print " sd",$4}/mmcblk1p2/{print " hm",$4}')
-WIFI=$(iwgetid -r || echo "none")
+DISKUSAGE=$(df -h|awk '$1 == "/dev/sda5" {print "/:",$4}')
+WIFI=$(nmcli device status | grep kapcsolódva | awk '{print $2}' || echo "none")
 DATESTATUS=$(date +"%A %X, %Y. %b. %d. %Z")
-VOLUME=$(pamixer --get-volume-human)
-BATTERY=$(echo "$(cat /sys/class/power_supply/BATC/status) $(cat /sys/class/power_supply/BATC/capacity)%")
+VOLUME=$(pamixer --get-volume-human | awk '{print "vol:" $0}')
+#BATTERY=$(echo "$(cat /sys/class/power_supply/BATC/status) $(cat /sys/class/power_supply/BATC/capacity)%")
+BATTERY=$(upower -i `upower -e | grep 'BAT'` | grep percentage | awk '{print "Bat:" $2}')
  echo "    $DISKUSAGE | $WIFI | $VOLUME | $BATTERY | $DATESTATUS | b:$BRIGHTNESS  " | awk -vORS="" '1' | xargs -i{} xsetroot -name "{}"
- sleep 1
-done
