@@ -1,4 +1,5 @@
 #!/bin/bash
+#script making a screenshot, and then sending a notification
 scrot -u -e 'dunstify -r 420 "$n taken" -i ~/$f -t 10000'
 echo -ne '\007'
 
