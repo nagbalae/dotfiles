@@ -1,0 +1,2 @@
+#!/bin/sh
+DATESTATUS=$(date +"%A %H:%M, %b. %d.")

@@ -1,0 +1,4 @@
+#!/bin/bash
+scrot -u -e 'dunstify -r 420 "$n taken" -i ~/$f -t 10000'
+echo -ne '\007'
+

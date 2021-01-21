@@ -1,9 +1,9 @@
 #!/bin/bash
 BRIGHTNESS=$(light)
-DISKUSAGE=$(df -h|awk '$1 == "/dev/sda5" {print "/:",$4}')
+DISKUSAGE=$(df -h|awk '$1 == "/dev/sda1" {print "/:",$4}')
 WIFI=$(nmcli device status | grep kapcsolódva | awk '{print $2}' || echo "none")
-DATESTATUS=$(date +"%A %X, %Y. %b. %d. %Z")
+DATESTATUS=$(date +"%A %H:%M, %Y. %b. %d. %Z")
 VOLUME=$(pamixer --get-volume-human | awk '{print "vol:" $0}')
-#BATTERY=$(echo "$(cat /sys/class/power_supply/BATC/status) $(cat /sys/class/power_supply/BATC/capacity)%")
-BATTERY=$(upower -i `upower -e | grep 'BAT'` | grep percentage | awk '{print "Bat:" $2}')
- echo "    $DISKUSAGE | $WIFI | $VOLUME | $BATTERY | $DATESTATUS | b:$BRIGHTNESS  " | awk -vORS="" '1' | xargs -i{} xsetroot -name "{}"
+BATTERY=$(acpi | awk '{print "B:" $4 " " $5}')
+ echo "    $DISKUSAGE | $WIFI | $VOLUME | $BATTERY | $DATESTATUS | b:$BRIGHTNESS  "
+#| awk -vORS="" '1'

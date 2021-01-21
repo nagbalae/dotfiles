@@ -11,7 +11,7 @@ mod4 + m
 mod4 + shift + m
 	$TERMINAL -e pulsemixer
 mod4 + b
-	$TERMINAL -e newsboat
+	$TERMINAL -e neomutt
 XF86TouchpadToggle
 	~/.sh/touchpad
 XF86MonBrightnessUp
@@ -26,7 +26,19 @@ XF86AudioLowerVolume
 	pamixer --allow-boost -d 5
 XF86Sleep
 	sudo -A zzz
+XF86AudioPrev
+	cmus-remote --prev
+XF86AudioNext
+	cmus-remote --next
+XF86AudioPlay
+	cmus-remote --pause
+XF86AudioStop
+	cmus-remote --stop
+XF86Display
+	arandr
+XF86Launch1
+	$TERMINAL -e ssh root@nagbalae.hu
 mod4 + Print
-	scrot
+	.sh/screenshot
 mod4 + a
 	passmenu

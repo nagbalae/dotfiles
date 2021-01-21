@@ -12,4 +12,4 @@ ALBUM=$(echo -e "$ALLTEXT" | grep "^\S*\salbum\s" | cut -d " " -f 3-999)
 TITLE=$(echo -e "$ALLTEXT" | grep "^\S*\stitle\s" | cut -d " " -f 3-999)
 STATUS=$(echo -e "$ALLTEXT" | grep "^status\s" | cut -d " " -f 2)
 ~/.sh/fetchcover > /dev/null
-dunstify -r 69420 "$(echo -e "$STATUS\n$ARTIST\n$TITLE\n$ALBUM")" -i /tmp/cover.jpg
+dunstify -r 69420 "$(echo -e "$STATUS\n$ARTIST\n$TITLE\n$ALBUM")" -i /tmp/cover.jpg -t 2000
